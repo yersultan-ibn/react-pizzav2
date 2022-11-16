@@ -12,7 +12,7 @@ function Categories() {
     <div className="categories">
       <ul>
         {categories.map((value, i) => {
-          return <li className="active">{value}</li>;
+          return <li key={i} className="active">{value}</li>;
         })}
         <li className="active">Все</li>
       </ul>
