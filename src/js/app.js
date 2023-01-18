@@ -14,13 +14,13 @@ function scrollToBlock(obj = {}) {
       scrollTop: $(obj.block || '.drimclub-benefit').offset().top - (obj.offsetY || 0),
     },
     1000,
-    function() {
+    function () {
       isScrolling = false;
     },
   );
 }
 
-$(document).bind('mousewheel DOMMouseScroll', function(event) {
+$(document).bind('mousewheel DOMMouseScroll', function (event) {
   if (!scrolled || isScrolling) {
     event.preventDefault();
   }
@@ -31,7 +31,7 @@ $(document).bind('mousewheel DOMMouseScroll', function(event) {
   }
   if (scrolled && window.scrollY <= $('.drimclub-benefit').offset().top && delta < 0) {
     isScrolling = true;
-    $('html,body').animate({ scrollTop: 0 }, 1000, function() {
+    $('html,body').animate({ scrollTop: 0 }, 1000, function () {
       isScrolling = false;
       if ($('.header').hasClass('header--hide')) {
         // $('.header').removeClass('header--hide');
@@ -48,7 +48,7 @@ document.onkeydown = ({ keyCode }) => {
   }
 };
 
-$(window).on('scroll', function(a, b, c) {
+$(window).on('scroll', function (a, b, c) {
   const headerOffset = $('.header').outerHeight();
   if (
     $(window).scrollTop() + headerOffset >= $('.drimclub-benefit').offset().top &&
@@ -159,13 +159,11 @@ function setBigSlide(obj) {
   }
 
   if (sliderIndex === 3) {
-    $('.big-slider .button--next').animate({ opacity: 0 }, 150, function() {
+    $('.big-slider .button--next').animate({ opacity: 0 }, 150, function () {
       $(this).hide();
     });
   } else {
-    $('.big-slider .button--next')
-      .show()
-      .animate({ opacity: 1 }, 150);
+    $('.big-slider .button--next').show().animate({ opacity: 1 }, 150);
   }
 
   // let lastIndex = sliderIndex - 1;
@@ -176,9 +174,7 @@ function setBigSlide(obj) {
   //   .addClass("active")
   //   .animate({ opacity: 1 }, 200);
 
-  $('.big-slider__images ul li')
-    .removeClass('active')
-    .animate({ opacity: 0 }, 300);
+  $('.big-slider__images ul li').removeClass('active').animate({ opacity: 0 }, 300);
   $('.big-slider__images ul li[data-index="' + sliderIndex + '"]')
     .addClass('active')
     .animate({ opacity: 1 }, 300);
@@ -204,7 +200,7 @@ $(document).ready(() => {
   });
 
   if (!is_safari) {
-    $('.main-block').mousemove(function(e) {
+    $('.main-block').mousemove(function (e) {
       parallaxIt(e, '#Path-Copy-3', -15);
       parallaxIt(e, '#mask-8', 15);
       parallaxIt(e, '#Path-Copy-4', -20);
@@ -240,7 +236,7 @@ $(document).ready(() => {
     }
   });
 
-  $('.hamburger').click(function() {
+  $('.hamburger').click(function () {
     $(this).toggleClass('is-active');
     if ($(this).hasClass('is-active')) {
       $('.header__mobile-menu').addClass('header__mobile-menu--show');
@@ -261,7 +257,7 @@ $(document).ready(() => {
     });
   });
 
-  $('.drimclub-benefit__blocks-item').click(function() {
+  $('.drimclub-benefit__blocks-item').click(function () {
     const block = $(this).data('scroll-block');
     let offset = 0;
     if (block === 'discounts-block__audio-courses') {
