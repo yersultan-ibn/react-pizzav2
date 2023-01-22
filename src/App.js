@@ -1,16 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-import Header from './components/Header';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
-import Cart from './pages/Cart';
-
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Cart from "./pages/Cart";
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <div className="wrapper">
