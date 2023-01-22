@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -29,14 +30,15 @@ const Home = ({ searchValue }) => {
     const category = categoryId > 0 ? `category:${categoryId}` : "";
     const search = searchValue > 0 ? `&search=${searchValue}` : "";
 
-    fetch(
-      `https://6374c18b08104a9c5f882c60.mockapi.io/items?limit=4&page=${currentPage}${category}&sortBy=${sortBy}&order=${order})}${search}`
-    )
-      .then((res) => res.json())
-      .then((arr) => {
-        setItems(arr);
+    axios
+      .get(
+        `https://6374c18b08104a9c5f882c60.mockapi.io/items?limit=4&page=${currentPage}${category}&sortBy=${sortBy}&order=${order})}${search}`
+      ) 
+      .then((res) => {
+        setItems(res.data);
         setIsLoading(false);
       });
+
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
